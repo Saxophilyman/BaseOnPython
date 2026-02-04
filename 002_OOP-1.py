@@ -105,7 +105,7 @@ def main() -> None:
     print(f"{hero_1.name} take prize? {will_hero_take_prize(hero_1, hero_1_pos, prize)}")
     print(f"{hero_2.name} take prize? {will_hero_take_prize(hero_2, hero_2_pos, prize)}")
 
-    # Побочный эффект - функция меняет объект и это видно снаружи
+#1.3. Побочный эффект - функция меняет объект и это видно снаружи
     print()
     print(f"Before healing: {hero_2.name} hp={hero_2.hp}")
     heal_hero(hero_2, heal_amount=30)
