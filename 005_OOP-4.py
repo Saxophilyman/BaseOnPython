@@ -3,11 +3,9 @@
 #     def __init__(self, capacity: int) -> None:
 #         self.__capacity = capacity
 #         self.__items: list[Book] = []
-
 # чтобы сделать нагляднее можно добавить метод show_all_books
+
 import math
-
-
 # Первая иерархия
 class Book:
     def __init__(self, title: str, author: str, pages: int, price: float) -> None:
@@ -24,7 +22,6 @@ class Book:
             return 0
         return math.ceil(self.__pages / pages_in_days)
 
-
 # потомок_1
 class PaperBook(Book):
     def __init__(self, title: str, author: str, pages: int, price: float, cover: str) -> None:
@@ -34,7 +31,7 @@ class PaperBook(Book):
 
     def take_destroying_of_book(self, damage: int) -> None:
         if damage < 0:
-            return  # возможно стоило бы использовать исключение, но требуется ли, если соблюдена в логика в данном случае?
+            return
         self.__destruction = min(100, self.__destruction + damage)
 
     def condition(self) -> str:
@@ -81,8 +78,7 @@ class BookStorage:
 
     def count(self) -> int:
         return len(self.__items)
-
-# новый метод
+    # новый метод
     def show_all_books(self) -> None:
         for book in self.__items:
             print(book.info())
@@ -124,7 +120,7 @@ def main() -> None:
     shelf = Bookshelf(capacity=10)
     bag = BookBag(capacity=2, weight=0.8)
 
-# Формально можно было бы проиллюстрировать так
+    # Формально можно было бы проиллюстрировать так
     print("--- Композиция: шкаф содержит книги ---")
     shelf.add_book(paper)
     shelf.add_book(ebook)
